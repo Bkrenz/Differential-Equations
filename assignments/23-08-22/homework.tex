@@ -1,0 +1,158 @@
+\documentclass[12pt]{article}
+
+\title{Assignment 2023-08-22}
+\author{Robert Krency}
+\date{}
+
+\usepackage{subfiles}
+
+\usepackage{tikz}
+%Tikz Library
+\usetikzlibrary{angles, quotes, intersections}
+
+
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{polar}
+
+%Notation
+\usepackage{physics}
+\usepackage{bm}
+
+%AMS
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+%Stuff
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{enumitem}
+
+\usepackage{setspace}
+\onehalfspacing
+
+% Geometry 
+\usepackage{geometry}
+\geometry{letterpaper, left=1in, top=1in, right=1in, bottom=1in}
+
+\setlength\columnsep{20pt}
+
+% Fancy Header
+\usepackage{fancyhdr, lastpage}
+\fancypagestyle{plain}{
+  \fancyhf{}    % Clear header/footer
+  \fancyhead[L]{ Math 3440 - Differential Equations}
+  \fancyhead[R]{RDK - F23}
+  \fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
+}
+\pagestyle{plain}
+
+% Add vertical spacing to tables
+\renewcommand{\arraystretch}{1.8}
+
+% Macros
+\newcommand{\definition}[1]{\underline{\textbf{#1}}}
+
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+
+% Begin Document
+\begin{document}
+
+\maketitle
+
+\section*{Section 1}
+
+\begin{enumerate}
+  \item Confirm the claimed solution in example 1.1.5 is actually a solution to the differential equation.
+
+  ODE: \(y' + 3y = 2\) \\ 
+  General Solution: \(y = \frac{2}{3} + Ce^{-3t}\)
+
+  \begin{proof}
+    \begin{align*}
+      y' = & -3Ce^{-3t} \\
+      y' + 3y = & -3Ce^{-3t} + 3(\frac{2}{3} + Ce^{-3t}) \\
+      = & -3Ce^{-3t} + frac{6}{3} + 3Ce^{-3t} \\
+      = & \ 2.
+    \end{align*}
+  \end{proof}
+  
+  \item Show the following are solutions to the indicated differential equations.
+  
+  \begin{enumerate}
+    \item \(y = e^{-x}\) is a solution to \(y' + y = 0\)
+    \begin{proof}
+      \begin{align*}
+        y' = & -e^{-x} \\
+        y' + y = & -e^{-x} + e^{-x} = 0.
+      \end{align*}  
+    \end{proof}
+
+    \pagebreak
+    \item \(y = x^2\) is a solution to \(xy' = 2y\)
+    \begin{proof}
+      \begin{align*}
+        y' = & \ 2x \\
+        xy' = & \ x * 2x = 2x^2 = 2y.
+      \end{align*}
+    \end{proof}
+    
+    \item \(y = \sqrt{1 + x^2}\) is a solution to \((1 + x^2)y' = xy\)
+    \begin{proof}
+      \begin{align*}
+        y' = &\  \frac{1}{2} {(1 + x^2)}^{-\frac{1}{2}} * 2x \\
+        = & \ x {(1 + x^2)}^{-\frac{1}{2}} \\
+        (1 + x^2)y' = & \ (1 + x^2) * x {(1 + x^2)}^{-\frac{1}{2}} \\
+        = & \ x {(1 + x^2)}^{\frac{1}{2}} \\
+        = & \ xy.
+      \end{align*}
+    \end{proof}
+
+    \item \(y = ae^x + be^{-x}\) is a solution to \(y'' - y = 0\)
+    \begin{proof}
+      \begin{align*}
+        y' = & \ ae^x - be^{-x} \\
+        y'' = & \ ae^x + be^{-x} \\
+        y'' - y = & \ ae^x + be^{-x} - (ae^x + be^{-x}) \\
+        = & \ 0.
+      \end{align*}
+    \end{proof}
+
+  \end{enumerate}
+  
+\end{enumerate}
+
+
+\pagebreak
+\section*{Section 2}
+
+\begin{enumerate}
+  \item Determine the order of each differential equation and whether it is linear or non-linear. If it is linear, determine if its is homogenous or non-homogenous.
+  \begin{enumerate}
+    \item \(y'' - \cos(t)y = e^{t}y'\)
+    
+    Order: 2, Linear, Homogenous
+
+    \item \({(y')}^3 = 2y\)
+    
+    Order: 1, Non-Linear
+
+    \item \(e^{y^{(4)}} + y'' - y = y'\)
+    
+    Order: 4, Linear, Homogenous
+
+    \item \(ty'' + \cos(t) + y = 0\)
+    
+    Order: 2, Linear, Non-Homogeneous
+
+  \end{enumerate} 
+\end{enumerate}
+
+\end{document}
